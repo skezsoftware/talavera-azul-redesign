@@ -3,10 +3,11 @@
   --ivory-deep: #ebe4d6;
   --charcoal: #2c2924;
   --charcoal-soft: #3d3933;
-  --olive: #5c6348;
-  --olive-deep: #4a5139;
-  --gold: #b8954a;
-  --gold-soft: #c9aa6a;
+  /* Primary "azul" accent (ocean blue). */
+  --olive: #1b5e7b;
+  --olive-deep: #124a5d;
+  --gold: #e85c12;
+  --gold-soft: #f28a3a;
   --cream: #faf7f1;
   --text: #3a372f;
   --text-muted: #6b655c;
@@ -19,7 +20,7 @@
   --serif: 'Cormorant Garamond', 'Times New Roman', serif;
   --sans: 'Outfit', system-ui, sans-serif;
 
-  --nav-height: 5.25rem;
+  --nav-height: 5.6rem;
   --container: 72rem;
   --container-wide: 86rem;
   --space: clamp(4.5rem, 8vw, 8rem);
@@ -35,6 +36,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -45,6 +47,14 @@ body {
   line-height: 1.7;
   color: var(--text);
   background: var(--ivory);
+  overflow-x: clip;
+  /* Subtle talavera-inspired dot pattern (blue + a hint of terracotta). */
+  background-image:
+    radial-gradient(circle at 12px 12px, rgba(27, 94, 123, 0.10) 2px, transparent 2.6px),
+    radial-gradient(circle at 0 0, rgba(232, 92, 18, 0.08) 1.5px, transparent 2px),
+    linear-gradient(180deg, rgba(27, 94, 123, 0.04), transparent 45%);
+  background-size: 24px 24px, 24px 24px, auto;
+  background-position: 0 0, 12px 12px, 0 0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -103,6 +113,8 @@ ul {
 
 #root {
   min-height: 100svh;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .skip-link {
@@ -137,7 +149,7 @@ ul {
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--olive);
+  color: var(--gold);
 }
 
 .site-main {

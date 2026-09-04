@@ -3,6 +3,7 @@ import { navLinks, restaurant } from '../data/restaurant'
 
 export default function Footer() {
   const year = new Date().getFullYear()
+  const foodNetwork = restaurant.social.find((item) => item.name === 'Food Network')
 
   return (
     <footer className="site-footer">
@@ -20,7 +21,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h2>Visit</h2>
+          <h2>Visítanos</h2>
           <ul className="footer-list">
             <li>
               <a href={restaurant.address.mapsUrl} target="_blank" rel="noreferrer">
@@ -40,7 +41,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h2>Explore</h2>
+          <h2>Explorar</h2>
           <ul className="footer-list">
             {navLinks.map((link) => (
               <li key={link.path}>
@@ -58,7 +59,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h2>Hours</h2>
+          <h2>Horario</h2>
           <ul className="footer-hours">
             {restaurant.hours.map((item) => (
               <li key={item.days}>
@@ -72,9 +73,19 @@ export default function Footer() {
 
       <div className="container-wide footer-bottom">
         <p>
-          © {year} {restaurant.name}. An independent restaurant in Chula Vista.
+          © {year} {restaurant.name}. Un restaurante independiente en Chula Vista.
         </p>
-        <p>Est. {restaurant.established}</p>
+        <p>
+          {foodNetwork ? (
+            <>
+              <a href={foodNetwork.href} target="_blank" rel="noreferrer">
+                Featured on Food Network
+              </a>
+              {' · '}
+            </>
+          ) : null}
+          Est. {restaurant.established}
+        </p>
       </div>
     </footer>
   )

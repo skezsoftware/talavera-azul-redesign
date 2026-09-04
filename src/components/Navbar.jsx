@@ -53,18 +53,21 @@ export default function Navbar() {
           aria-label={`${restaurant.name} home`}
           onClick={() => setOpen(false)}
         >
-          {restaurant.logo && (
+          {restaurant.logo ? (
             <img
               className="brand__logo"
               src={restaurant.logo}
               alt=""
               aria-hidden="true"
             />
+          ) : (
+            <>
+              <span className="brand__name">{restaurant.shortName || restaurant.name}</span>
+              <span className="brand__place">
+                {restaurant.neighborhood} · {restaurant.address.city}
+              </span>
+            </>
           )}
-          <span className="brand__name">{restaurant.shortName || restaurant.name}</span>
-          <span className="brand__place">
-            {restaurant.neighborhood} · {restaurant.address.city}
-          </span>
         </Link>
 
         <nav className="nav-links" aria-label="Primary">

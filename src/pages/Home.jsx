@@ -16,7 +16,7 @@ export default function Home() {
         </div>
         <div className="container home-hero__content">
           <p className="eyebrow home-hero__place">
-            {restaurant.neighborhood} · {restaurant.address.city}
+            {restaurant.neighborhood}
           </p>
           <h1>{restaurant.name}</h1>
           <p className="home-hero__tagline">{restaurant.tagline}</p>
@@ -25,7 +25,7 @@ export default function Home() {
               {restaurant.primaryCta.label}
             </Button>
             <Button to="/menu" variant="light">
-              View Menu
+              {restaurant.secondaryCta.label}
             </Button>
           </div>
         </div>
@@ -35,23 +35,24 @@ export default function Home() {
         <div className="container intro-grid">
           <div className="intro-copy">
             <SectionHeading
-              eyebrow="Welcome"
+              eyebrow="Bienvenidos"
               title="Authentic Mexican breakfast, made from scratch."
             />
             <p>{restaurant.description}</p>
             <p>
               From our famous chipotle chilaquiles to the rich café de olla,
               every dish is a celebration of traditional flavors passed down
-              through generations. Come hungry, leave happy.
+              through generations. Come hungry, leave happy — buen provecho.
             </p>
             <Button to="/about" variant="secondary">
-              Our Story
+              Nuestra Historia
             </Button>
           </div>
-          <div className="intro-media">
+          <div className="intro-media intro-media--storefront">
             <SafeImage
-              src={restaurant.images.plated}
-              alt="A plate of chilaquiles at Talavera Azul"
+              className="safe-image--storefront"
+              src={restaurant.images.storefront}
+              alt="The Talavera Azul storefront sign on 3rd Avenue"
               hover
             />
           </div>
@@ -62,7 +63,7 @@ export default function Home() {
         <div className="container">
           <SectionHeading
             align="center"
-            eyebrow="Fan Favorites"
+            eyebrow="Favoritos"
             title="A few things we are known for."
             subtitle="The dishes that keep Chula Vista coming back every morning."
           />
@@ -90,7 +91,7 @@ export default function Home() {
           <div className="split-media">
             <SafeImage
               src={restaurant.images.diningRoom}
-              alt="The Talavera Azul dining room with colorful talavera tiles"
+              alt="The Talavera Azul dining room with talavera pottery and blue chairs"
               hover
             />
           </div>
@@ -117,29 +118,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="private-promo">
-        <SafeImage
-          src={restaurant.images.privateDining}
-          alt=""
-        />
-        <div className="container private-promo__content">
-          <p className="eyebrow">Private Events</p>
-          <h2>Celebrate your next occasion with us.</h2>
-          <p>
-            Family brunch, birthdays, group gatherings, or catering — our
-            colorful dining room is ready to host your next celebration.
-          </p>
-          <Button to="/private-dining" variant="light">
-            Plan an Event
-          </Button>
-        </div>
-      </section>
-
       <section className="section">
         <div className="container">
           <SectionHeading
             align="center"
-            eyebrow="Guests"
+            eyebrow="Testimonios"
             title="What our guests are saying."
           />
           <div className="testimonials">
@@ -160,7 +143,7 @@ export default function Home() {
       <section className="section section--alt">
         <div className="container hours-grid">
           <div className="hours-panel">
-            <SectionHeading eyebrow="Hours" title="Open every day for breakfast & brunch." />
+            <SectionHeading eyebrow="Horario" title="Open every day for breakfast & brunch." />
             <ul>
               {restaurant.hours.map((item) => (
                 <li key={item.days}>
@@ -171,7 +154,12 @@ export default function Home() {
             </ul>
           </div>
           <div className="location-panel">
-            <SectionHeading eyebrow="Location" title="In the heart of Chula Vista." />
+            <SafeImage
+              src={restaurant.images.thirdAvenue}
+              alt="The Third Avenue Downtown Chula Vista arch near Talavera Azul"
+              hover
+            />
+            <SectionHeading eyebrow="Ubicación" title="In the heart of Chula Vista." />
             <p style={{ color: 'var(--text-muted)' }}>
               {restaurant.address.full}
             </p>
@@ -183,7 +171,7 @@ export default function Home() {
             </p>
             <div className="btn-group" style={{ marginTop: '1.2rem' }}>
               <Button href={restaurant.address.mapsUrl} variant="secondary">
-                Get Directions
+                Cómo Llegar
               </Button>
               <Button to="/contact" variant="secondary">
                 Contact
@@ -197,8 +185,8 @@ export default function Home() {
         <div className="container cta-band">
           <SectionHeading
             align="center"
-            eyebrow="This Morning"
-            title="Join us for breakfast."
+            eyebrow="Esta Mañana"
+            title="Ven a desayunar con nosotros."
             subtitle="Walk-ins welcome. Reservations available by phone for larger parties. Get here early on weekends — the line is worth it."
           />
           <div className="btn-group" style={{ justifyContent: 'center' }}>
@@ -206,7 +194,7 @@ export default function Home() {
               {restaurant.primaryCta.label}
             </Button>
             <Button to="/menu" variant="light">
-              View Menu
+              {restaurant.secondaryCta.label}
             </Button>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { getImage, restaurant } from '../data/restaurant'
+import { restaurant } from '../data/restaurant'
 import { usePageTitle } from '../hooks/usePageTitle'
 import PageHero from '../components/PageHero'
 import SafeImage from '../components/SafeImage'
@@ -11,7 +11,7 @@ export default function About() {
   return (
     <>
       <PageHero
-        image={restaurant.images.coast}
+        image={restaurant.images.diningEntrance}
         eyebrow={about.eyebrow}
         title={about.title}
         subtitle={about.lead}
@@ -19,7 +19,7 @@ export default function About() {
 
       <section className="section">
         <div className="container">
-          <SectionHeading eyebrow="Since 2008" title="A Chula Vista institution, born in Tijuana." />
+          <SectionHeading eyebrow="Desde 2008" title="A Chula Vista institution, born in Tijuana." />
           <div className="story-prose">
             {about.story.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
@@ -30,8 +30,8 @@ export default function About() {
 
       <div className="image-band">
         <SafeImage
-          src={restaurant.images.harbor}
-          alt="Downtown Chula Vista near Talavera Azul"
+          src={restaurant.images.diningRoom}
+          alt="The dining room at Talavera Azul"
         />
       </div>
 
@@ -39,8 +39,8 @@ export default function About() {
         <div className="container chef-grid">
           <div className="chef-media">
             <SafeImage
-              src={getImage(chef.imageKey)}
-              alt={chef.name}
+              src={restaurant.images.potteryShelf}
+              alt="Talavera pottery display at Talavera Azul"
               hover
             />
           </div>
@@ -48,7 +48,7 @@ export default function About() {
             <SectionHeading
               eyebrow={chef.title}
               title={chef.name}
-              subtitle="Four decades of hospitality, from Tijuana to Chula Vista."
+              subtitle="Cuatro décadas de hospitalidad, from Tijuana to Chula Vista."
             />
             <div className="story-prose">
               {chef.bio.map((paragraph) => (
@@ -63,7 +63,7 @@ export default function About() {
         <div className="container">
           <SectionHeading
             align="center"
-            eyebrow="Philosophy"
+            eyebrow="Filosofía"
             title={about.philosophy.title}
             subtitle={about.philosophy.text}
           />
@@ -82,7 +82,7 @@ export default function About() {
         <div className="container split">
           <div>
             <SectionHeading
-              eyebrow="The Space"
+              eyebrow="El Espacio"
               title={about.interior.title}
             />
             <p className="notes" style={{ marginTop: '1.2rem' }}>
@@ -91,8 +91,8 @@ export default function About() {
           </div>
           <div className="split-media">
             <SafeImage
-              src={restaurant.images.interior}
-              alt="The Talavera Azul dining room"
+              src={restaurant.images.diningTables}
+              alt="Tables and talavera décor in the dining room"
               hover
             />
           </div>
@@ -102,15 +102,22 @@ export default function About() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container about-gallery">
           <SafeImage
-            src={restaurant.images.kitchen}
-            alt="The kitchen at Talavera Azul"
+            src={restaurant.images.potteryNiche}
+            alt="Blue and white talavera pottery niches at Talavera Azul"
             hover
           />
-          <SafeImage
-            src={restaurant.images.ingredients}
-            alt="Fresh ingredients used at Talavera Azul"
-            hover
-          />
+          <div className="about-gallery__stack">
+            <SafeImage
+              src={restaurant.images.ceramicCrosses}
+              alt="Hand-painted ceramic crosses on the wall at Talavera Azul"
+              hover
+            />
+            <SafeImage
+              src={restaurant.images.potteryShelf}
+              alt="Talavera pottery shelf display at Talavera Azul"
+              hover
+            />
+          </div>
         </div>
       </section>
     </>
